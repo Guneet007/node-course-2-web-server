@@ -28,7 +28,7 @@ fs.appendFile('server.log',log+'\n',(err)=>{
 //
 //   res.render('maintenance.hbs');
 // });
-app.use(express.static(__dirname+"/public"));
+app.use(express.static(__dirname+'/public'));
 hbs.registerHelper('getCurrentYear',()=>{
 return new Date().getFullYear();
 
@@ -55,6 +55,13 @@ app.get('/',(req,res)=>{
 app.get('/about',(req,res)=>{
   res.render('about.hbs',{
     pageTitle:'About Page'
+  });
+});
+
+app.get('/projects',(req,res)=>{
+  res.render('projects.hbs',{
+    pageTitle:'Projects Page',
+    message: 'Projects Listed Here'
   });
 });
 app.get('/bad',(req,res)=>{
